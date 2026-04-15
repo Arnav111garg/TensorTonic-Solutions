@@ -1,0 +1,19 @@
+import numpy as np
+
+def expected_value_discrete(x, p):
+    x = np.array(x, dtype=float)
+    p = np.array(p, dtype=float)
+    
+    # Check shapes
+    if x.shape != p.shape:
+        raise ValueError("Shapes of x and p must match")
+    
+    # Check probability sum
+    if not np.isclose(np.sum(p), 1.0, atol=1e-6):
+        raise ValueError("Probabilities must sum to 1")
+    
+    # Compute expected value
+    return float(np.sum(x * p))
+
+        
+    pass
